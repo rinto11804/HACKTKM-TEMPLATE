@@ -2,6 +2,7 @@ package storage
 
 import (
 	"github.com/akhil-is-watching/enrut_backend_api/config"
+	"github.com/akhil-is-watching/enrut_backend_api/models"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
@@ -18,7 +19,7 @@ func ConnectDB(config *config.Config) {
 	db.Exec("CREATE EXTENSION IF NOT EXISTS \"uuid-ossp\"")
 	db.Logger = logger.Default.LogMode(logger.Info)
 
-	err = db.AutoMigrate()
+	err = db.AutoMigrate(&models.Producer{})
 	if err != nil {
 		panic("DB Migrations Failed")
 	}

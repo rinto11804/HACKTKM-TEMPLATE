@@ -2,11 +2,14 @@ module github.com/akhil-is-watching/enrut_backend_api
 
 go 1.20
 
-require github.com/spf13/viper v1.18.2
+require (
+	github.com/google/uuid v1.6.0
+	github.com/spf13/viper v1.18.2
+	golang.org/x/crypto v0.16.0
+)
 
 require (
 	github.com/andybalholm/brotli v1.0.5 // indirect
-	github.com/google/uuid v1.6.0 // indirect
 	github.com/jackc/pgpassfile v1.0.0 // indirect
 	github.com/jackc/pgservicefile v0.0.0-20221227161230-091c0ba34f0a // indirect
 	github.com/jackc/pgx/v5 v5.4.3 // indirect
@@ -20,7 +23,6 @@ require (
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasthttp v1.51.0 // indirect
 	github.com/valyala/tcplisten v1.0.0 // indirect
-	golang.org/x/crypto v0.16.0 // indirect
 )
 
 require (

@@ -8,4 +8,5 @@ import (
 func ProducerRoutes(app *fiber.App) {
 	app.Get("/producer/:producerId", controllers.GetProducer)
 	app.Post("/producer", controllers.CreateProducer)
+	app.Post("/login", controllers.LoginProducer)
 }

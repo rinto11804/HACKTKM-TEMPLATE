@@ -26,23 +26,25 @@ func (repo AssetRepository) Create(input types.AssetCreateInput) error {
 		ProducerID:       input.ProducerID,
 	}
 
-	for _, i := range input.IncomingAssets {
-		incoming := models.IncomingAsset{
-			ID:            helpers.UIDGen().GenerateID("IA"),
-			AssetID:       i.AssetID,
-			OriginAssetID: asset.ID,
-			Quantity:      i.Quantity,
-		}
-
-		incomings = append(incomings, incoming)
-	}
-
 	if err := repo.db.Save(&asset).Error; err != nil {
 		return err
 	}
 
-	if err := repo.db.Create(&incomings).Error; err != nil {
-		return err
+	if len(input.IncomingAssets) > 0 {
+		for _, i := range input.IncomingAssets {
+			incoming := models.IncomingAsset{
+				ID:            helpers.UIDGen().GenerateID("IA"),
+				AssetID:       i.AssetID,
+				OriginAssetID: asset.ID,
+				Quantity:      i.Quantity,
+			}
+
+			incomings = append(incomings, incoming)
+		}
+
+		if err := repo.db.Create(&incomings).Error; err != nil {
+			return err
+		}
 	}
 
 	return nil

@@ -1,9 +1,9 @@
 package models
 
 type Asset struct {
-	AssetID          string `gorm:"primaryKey"`
+	ID               string `gorm:"primaryKey"`
 	AssetType        string
-	ProductionAmount string
+	ProductionAmount int
 	IncomingAssets   []IncomingAsset
 	OutgoingAssets   []OutgoingAsset
 	ProducerID       string

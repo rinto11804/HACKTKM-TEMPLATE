@@ -36,7 +36,7 @@ func LoginProducer(c *fiber.Ctx) error {
 
 	return c.Status(fiber.StatusOK).JSON(fiber.Map{
 		"error": false,
-		"data":  "success",
+		"data":  producer,
 	})
 }
 

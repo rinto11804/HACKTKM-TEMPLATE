@@ -1,6 +1,7 @@
 package repository
 
 import (
+	"github.com/akhil-is-watching/enrut_backend_api/helpers"
 	"github.com/akhil-is-watching/enrut_backend_api/models"
 	"github.com/akhil-is-watching/enrut_backend_api/types"
 	"golang.org/x/crypto/bcrypt"
@@ -26,6 +27,7 @@ func (repo ProducerRepository) Create(input types.ProducerCreateInput) error {
 	}
 
 	producer := models.Producer{
+		ID:       helpers.UIDGen().GenerateID("P"),
 		Name:     input.Name,
 		Email:    input.Email,
 		Password: string(hashedPasword),
@@ -44,7 +46,7 @@ func (repo ProducerRepository) GetByEmail(input types.ProducerLoginInput) (types
 	}
 
 	producerResult := types.ProducerResult{
-		ID:       producer.ID.String(),
+		ID:       producer.ID,
 		Name:     producer.Name,
 		Email:    producer.Email,
 		Password: producer.Password,
@@ -60,7 +62,7 @@ func (repo ProducerRepository) Get(input types.ProducerByIDInput) (types.Produce
 	}
 
 	producerResult := types.ProducerResult{
-		ID:    producer.ID.String(),
+		ID:    producer.ID,
 		Name:  producer.Name,
 		Email: producer.Email,
 	}

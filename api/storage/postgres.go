@@ -19,7 +19,7 @@ func ConnectDB(config *config.Config) {
 	db.Exec("CREATE EXTENSION IF NOT EXISTS \"uuid-ossp\"")
 	db.Logger = logger.Default.LogMode(logger.Info)
 
-	err = db.AutoMigrate(&models.Product{}, &models.User{}, &models.Inventory{})
+	err = db.AutoMigrate(&models.Product{}, &models.User{}, &models.Inventory{}, &models.Price{})
 	if err != nil {
 		panic("DB Migrations Failed")
 	}

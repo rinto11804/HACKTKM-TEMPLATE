@@ -18,9 +18,9 @@ func NewAssetRepository(db *gorm.DB) AssetRepository {
 }
 
 func (repo AssetRepository) Create(input types.AssetCreateInput) error {
-	var incomings []models.IncomingAsset
+	assetID := helpers.UIDGen().GenerateID("A")
 	asset := models.Asset{
-		ID:               helpers.UIDGen().GenerateID("A"),
+		ID:               assetID,
 		AssetType:        input.AssetType,
 		ProductionAmount: input.ProductionAmount,
 		ProducerID:       input.ProducerID,
@@ -39,11 +39,9 @@ func (repo AssetRepository) Create(input types.AssetCreateInput) error {
 				Quantity:      i.Quantity,
 			}
 
-			incomings = append(incomings, incoming)
-		}
-
-		if err := repo.db.Create(&incomings).Error; err != nil {
-			return err
+			if err := repo.db.Create(&incoming).Error; err != nil {
+				return err
+			}
 		}
 	}
 
@@ -53,7 +51,7 @@ func (repo AssetRepository) Create(input types.AssetCreateInput) error {
 func (repo AssetRepository) All() ([]models.Asset, error) {
 	var assets []models.Asset
 
-	repo.db.Preload("IncomingAssets").Find(&assets)
+	repo.db.Find(&assets)
 
 	return assets, nil
 }
@@ -61,7 +59,7 @@ func (repo AssetRepository) All() ([]models.Asset, error) {
 func (repo AssetRepository) GetAssetsForUser(ProducerID string) ([]models.Asset, error) {
 	var assets []models.Asset
 
-	repo.db.Preload("IncomingAssets").Where("producer_id = ?", ProducerID).Find(&assets)
+	repo.db.Where("producer_id = ?", ProducerID).Find(&assets)
 
 	return assets, nil
 }

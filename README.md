@@ -17,21 +17,45 @@ Tell us about your project here
 
 ## How it Works ?
 
-Explaining the working of project  
-Embed video of project demo
+The project works by giving the farmer historical and realtime market data and demand analysis to help the farmer choose the crop and farming strategies according to their analysis. It takes verified data from **agmarknet.gov.in** which is a governemnt platform which provides market prices and demands for each commodity based on a timeline
 
 ## Technologies used
 
-List out tech stacks you have used
+- Nextjs
+- Golang
+- Python
 
 ## How to configure
+```
+git clone git@github.com:rinto11804/sigma.git
+```
+### Frontend 
+```
+cd ui
+yarn install
+```
 
-Instructions for setting up project
+### Backend
+```
+cd api
+go mod init github.com/akhil-is-watching/enrut_backend_api
+```
 
 ## How to Run
 
-Instructions for running
+### Frontend 
+```
+cd uu
+yarn run dev
+```
+
+### Backend
+```
+cd api
+make run 
+```
 
 ## Other Links
 
 Provide any other links ( for eg. Wireframe , UI, Abstract, Presentation )
+[Embed the live link of project](live_link)

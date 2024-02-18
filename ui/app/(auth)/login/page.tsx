@@ -12,10 +12,9 @@ export default function LoginPage() {
     const form = useForm({
         initialValues: {
             email: "",
-            password: "",
         }
     })
-    function onSubmit(values: { email: string, password: string }) {
+    function onSubmit(values: { email: string }) {
         login.mutate(values, { onSuccess: () => router.push('/dashboard') })
     }
     return (
@@ -32,7 +31,7 @@ export default function LoginPage() {
             <form onSubmit={form.onSubmit(values => onSubmit(values))}>
                 <Paper withBorder shadow="md" p={30} mt={30} radius="md">
                     <TextInput label="Email" placeholder="Enter email" required {...form.getInputProps("email")} />
-                    <PasswordInput label="Password" placeholder="Enter password" required mt="md"{...form.getInputProps('password')} />
+                    <PasswordInput label="Password" placeholder="Enter password" required mt="md" />
                     <Button fullWidth mt="xl" c="dark" type="submit">
                         Login
                     </Button>

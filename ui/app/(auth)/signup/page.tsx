@@ -12,20 +12,19 @@ import {
     Button,
 } from '@mantine/core';
 import Link from "next/link";
-import { useCreateProducer } from "../../../backend/user/user.query";
+import { useRegister } from "../../../backend/user/user.query";
 import { useRouter } from "next/navigation";
 
 export default function SignuPPage() {
-    const createProducer = useCreateProducer()
+    const createProducer = useRegister()
     const router = useRouter();
     const form = useForm({
         initialValues: {
             name: "",
             email: "",
-            password: "",
         }
     });
-    function onSubmit(values: { name: string, email: string, password: string }) {
+    function onSubmit(values: { name: string, email: string }) {
         createProducer.mutate(values, {
             onSuccess: () => {
                 router.push('/login')
@@ -47,7 +46,7 @@ export default function SignuPPage() {
                 <Paper withBorder shadow="md" p={30} mt={30} radius="md">
                     <TextInput label="Full Name" placeholder="John Doe" required {...form.getInputProps("name")} />
                     <TextInput label="Email" placeholder="you@mantine.dev" required {...form.getInputProps("email")} />
-                    <PasswordInput label="Password" placeholder="Your password" required mt="md" {...form.getInputProps("password")} />
+                    <PasswordInput label="Password" placeholder="Your password" required mt="md" />
                     <Button fullWidth mt="xl" type="submit">
                         Sign up
                     </Button>

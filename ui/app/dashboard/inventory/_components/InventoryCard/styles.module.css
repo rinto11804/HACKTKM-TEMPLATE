@@ -1,0 +1,5 @@
+.asset-card-root {
+  padding: var(--mantine-spacing-lg);
+  border-radius: var(--mantine-radius-lg);
+  min-width: 300px;
+}

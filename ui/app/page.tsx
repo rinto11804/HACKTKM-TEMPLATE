@@ -3,9 +3,7 @@
 import React from 'react';
 import Graphin, { Behaviors } from '@antv/graphin';
 import { useViewportSize } from '@mantine/hooks';
-
-
-
+  
 const { DragCanvas, ZoomCanvas, DragNode, ActivateRelations } = Behaviors;
 
 export default function HomePage() {
@@ -54,10 +52,6 @@ export default function HomePage() {
     ],
   };
   return (
-    <div style={{ width: "100vw", height: "100vh" }}>
-      < Graphin data={data} theme={{ mode: "dark" }}>
-        < ZoomCanvas />
-      </Graphin>
-    </div>
+    <></>
   );
 }

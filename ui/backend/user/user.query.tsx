@@ -1,11 +1,11 @@
 import { useMutation } from '@tanstack/react-query'
-import { createProducer, getUserByEmailAndPassword } from './user.api'
+import { createProducer, login } from './user.api'
 import { showNotification } from '@mantine/notifications'
 
 
 export function useLogin() {
     return useMutation({
-        mutationFn: ({ email, password }: { email: string, password: string }) => getUserByEmailAndPassword(email, password),
+        mutationFn: ({ email }: { email: string }) => login(email),
         onSuccess: (data) => {
             showNotification({ message: "Logged in successfully", color: "green" })
             console.log(data)
@@ -16,11 +16,11 @@ export function useLogin() {
         }
     })
 }
-export function useCreateProducer() {
+export function useRegister() {
     return useMutation({
-        mutationFn: ({ name, email, password }: { name: string, email: string, password: string }) => createProducer(name, email, password),
+        mutationFn: ({ name, email }: { name: string, email: string }) => createProducer(name, email),
         onSuccess: () => {
-            showNotification({ message: "Producer created successfully", color: "green" })
+            showNotification({ message: "User registered successfully", color: "green" })
         },
         onError: (error) => {
             showNotification({ message: error.message, color: "red" })

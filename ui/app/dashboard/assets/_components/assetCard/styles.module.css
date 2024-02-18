@@ -1,7 +1,0 @@
-.asset-card-root {
-  padding: var(--mantine-spacing-xl);
-  border: 1px solid var(--mantine-primary-color-1);
-  border-radius: var(--mantine-radius-lg);
-  justify-content: space-between;
-  min-width: 300px;
-}

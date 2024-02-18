@@ -4,27 +4,9 @@ import { IconSearch } from "@tabler/icons-react";
 import styles from './styles.module.css';
 import AddAssetModal from "./_components/AddAssetModal";
 import AssetCard from "./_components/assetCard";
-import { useAllAssetsByProducerId } from "../../../backend/asset/asset.query";
+import { useAllAssetsByProducerId } from "../../../backend/_stashed/asset/asset.query";
 
 export default function AssetPage() {
-    const dummyAssetData: Asset[] = [
-        {
-            name: "Potato",
-            status: "active"
-        },
-        {
-            name: "Tomato",
-            status: "inactive"
-        },
-        {
-            name: "Wheat",
-            status: "active"
-        },
-        {
-            name: "Rice",
-            status: "inactive"
-        }
-    ]
     const { data: allAssets } = useAllAssetsByProducerId()
     return (
         <Stack flex={1} p={"xs"}>
@@ -35,9 +17,9 @@ export default function AssetPage() {
                     <AddAssetModal />
                 </Group>
             </Group>
-            <Group mt={"xs"} justify="space-around">
+            <Group mt={"xs"}>
                 {allAssets?.data?.map((props) => (
-                    <AssetCard name={props.AssetType} status="active" />
+                    <AssetCard name={props.AssetType} status="active" id={props.ID} minify />
                 ))}
             </Group>
         </Stack>

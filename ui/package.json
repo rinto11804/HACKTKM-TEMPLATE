@@ -12,6 +12,7 @@
     "@antv/graphin": "^2.7.27",
     "@antv/graphin-components": "^2.4.1",
     "@antv/graphin-icons": "^1.0.0",
+    "@mantine/charts": "^7.5.3",
     "@mantine/core": "7.5.1",
     "@mantine/form": "^7.5.3",
     "@mantine/hooks": "7.5.1",
@@ -21,7 +22,8 @@
     "axios": "^1.6.7",
     "next": "14.0.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "recharts": "2"
   },
   "devDependencies": {
     "@types/node": "20.8.10",

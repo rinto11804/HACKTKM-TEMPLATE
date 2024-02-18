@@ -1,5 +1,5 @@
 import axios from "axios";
-import { customAxios } from "..";
+import { customAxios } from "../..";
 
 const ASSET_BASE_URL = "/asset";
 

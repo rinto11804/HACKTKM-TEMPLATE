@@ -58,4 +58,5 @@ make run
 ## Other Links
 
 Provide any other links ( for eg. Wireframe , UI, Abstract, Presentation )
-[Embed the live link of project](live_link)
+[Presentation](
+https://drive.google.com/drive/folders/1ojzCzo1TFibEaI4JyTgSiwXvdHALP89K)
